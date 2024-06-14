@@ -19,7 +19,7 @@ resource "aws_db_instance" "app_rds" {
   username             = "admin"
   password             = "admin123"
   parameter_group_name = "default.mysql8.0"
-  skip_final_snapshot  = false
+  skip_final_snapshot  = true # Evitar snapshot final
   multi_az             = false
   db_subnet_group_name = aws_db_subnet_group.app_dbsbng.name
 
@@ -29,5 +29,4 @@ resource "aws_db_instance" "app_rds" {
       Name = "${var.project_name}-database"
     }
   )
-
 }

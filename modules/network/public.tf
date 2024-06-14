@@ -13,11 +13,11 @@ resource "aws_subnet" "app_subnet_public_1a" {
 }
 
 resource "aws_subnet" "app_subnet_public_1b" {
-  vpc_id            = aws_vpc.app_vpc.id
-  cidr_block        = "10.10.10.64/26"
-  availability_zone = "${data.aws_region.current.name}b"
+  vpc_id                  = aws_vpc.app_vpc.id
+  cidr_block              = "10.10.10.64/26"
+  availability_zone       = "${data.aws_region.current.name}b"
   map_public_ip_on_launch = true
-  
+
   tags = merge(
     var.tags,
     {
