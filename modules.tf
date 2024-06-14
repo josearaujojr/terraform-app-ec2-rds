@@ -10,6 +10,7 @@ module "app_ec2" {
   project_name         = var.project_name
   tags                 = local.tags
   app_subnet_public_1a = module.app_network.app_subnet_public_1a
+  app_vpc_id = module.app_network.app_vpc
 }
 
 module "app_rds" {
