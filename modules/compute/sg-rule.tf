@@ -29,6 +29,15 @@ resource "aws_security_group_rule" "app_sg_ingress_ssh" {
   security_group_id = aws_security_group.app_sg.id
 }
 
+resource "aws_security_group_rule" "app_sg_ingress_ssh" {
+  type              = "ingress"
+  from_port         = 5432
+  to_port           = 5432
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = aws_security_group.app_sg.id
+}
+
 resource "aws_security_group_rule" "app_sg_egress" {
   type              = "egress"
   from_port         = 0
